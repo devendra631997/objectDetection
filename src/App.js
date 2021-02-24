@@ -54,6 +54,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <h1>Devendra Kumar Singh</h1>
         <Webcam
           ref={webcamRef}
           muted={true} 
