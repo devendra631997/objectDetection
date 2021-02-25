@@ -6,10 +6,15 @@ import Webcam from "react-webcam";
 import "./App.css";
 import { drawRect } from "./utilities";
 
+
+
+
+
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const [height, setHeight] = React.useState(window.innerHeight);
   // Main function
   const runCoco = async () => {
     const net = await cocossd.load();
@@ -52,9 +57,11 @@ function App() {
   useEffect(()=>runCoco());
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div style={{width:width,height:height}} className="App">
+        {/* <div>{`Window width = ${width}`} This is my Love</div>
+    <div>{`Window height = ${height}`} Don't Talk cheap show me the Code</div> */}
       <h1>Devendra Kumar Singh</h1>
+      <header className="App-header">
         <Webcam
           ref={webcamRef}
           muted={true} 
@@ -66,8 +73,8 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: width,
+            height: height
           }}
         />
         {console.log(tf)}
@@ -81,8 +88,8 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 8,
-            width: 640,
-            height: 480,
+            width: height,
+            height: height,
           }}
         />
       </header>
